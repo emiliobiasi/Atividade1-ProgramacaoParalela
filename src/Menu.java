@@ -1,5 +1,5 @@
 public class Menu {
-    public static Integer MainMenu() throws Exception {
+    public static void MainMenu() throws Exception {
         System.out.println("MENU");
         Integer numProcessadores = Programa.numProcessadores();
         System.out.println("Sua máquina possui " + numProcessadores + " processadores.");
@@ -21,6 +21,5 @@ public class Menu {
                 System.out.println("Opção não reconhecida.");
         }
 
-        return tamVetor;
     }
 }
