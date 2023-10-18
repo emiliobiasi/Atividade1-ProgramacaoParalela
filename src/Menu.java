@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class Menu {
-    public static int mainMenu() {
+    public static int[] mainMenu() {
+        int[] respostas = new int[2];
         try {
             Scanner scanner = new Scanner(System.in);
 
@@ -9,7 +10,6 @@ public class Menu {
             Integer numProcessadores = Programa.numProcessadores();
             System.out.println("Sua máquina possui " + numProcessadores + " processadores.");
             int opcao = 0;
-            int[] respostas = new int[2];
 
             do {
                 System.out.println("Escolha uma opção:");
@@ -47,11 +47,11 @@ public class Menu {
             respostas[1] = scanner.nextInt();
 
 
-            return respostas[0];
+            return respostas;
 
         } catch (Exception e) {
             e.printStackTrace();
-            return 1000000;
+            return respostas;
         }
     }
 }

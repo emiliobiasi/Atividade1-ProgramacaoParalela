@@ -5,7 +5,9 @@ public class Main {
     public static void main(String[] args) {
         try
         {
-            int tamVetor = Menu.mainMenu();
+            int[] respostas = Menu.mainMenu();
+            int tamVetor = respostas[0];
+            System.out.println("Tamanho do Vetor: " + tamVetor);
 
             Vector<Integer> vetorGigante = new Vector<>(tamVetor);
             for (int i = 0; i < tamVetor; i++) {
@@ -14,7 +16,8 @@ public class Main {
             Collections.shuffle(vetorGigante);
 
             int NumeroDeThreads = Programa.numProcessadores();
-            Integer valorBuscado = 777000;
+            Integer valorBuscado = respostas[1];
+            System.out.println("Valor Buscado: " + valorBuscado);
 
             int tamanhoPorThread = vetorGigante.size() / NumeroDeThreads;
             ThreadDeBusca[] threads = new ThreadDeBusca[NumeroDeThreads];
