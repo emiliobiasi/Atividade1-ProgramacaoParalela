@@ -11,7 +11,6 @@ public class ThreadDeBusca extends Thread{
     private Integer posicaoEncontrada;
 
 
-
     public ThreadDeBusca (Vector<Integer> vetorGigante, Integer i, Integer f, Integer v, Integer threadId) throws Exception {
         if (vetorGigante==null)
             throw new Exception ("Vetor ausente");

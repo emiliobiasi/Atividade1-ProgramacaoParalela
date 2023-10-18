@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         try
         {
-            int tamVetor = 1000000;
+            int tamVetor = Menu.mainMenu();
 
             Vector<Integer> vetorGigante = new Vector<>(tamVetor);
             for (int i = 0; i < tamVetor; i++) {
@@ -13,13 +13,12 @@ public class Main {
             }
             Collections.shuffle(vetorGigante);
 
-            Integer NumeroDeThreads = Programa.numProcessadores();
-            Integer valorBuscado = 2000000;
+            int NumeroDeThreads = Programa.numProcessadores();
+            Integer valorBuscado = 777000;
 
             int tamanhoPorThread = vetorGigante.size() / NumeroDeThreads;
             ThreadDeBusca[] threads = new ThreadDeBusca[NumeroDeThreads];
 
-            System.out.println(NumeroDeThreads);
             for (int i = 0; i < NumeroDeThreads; i++) {
                 int inicio = i * tamanhoPorThread;
                 int fim = (i == NumeroDeThreads - 1) ? vetorGigante.size() : (i + 1) * tamanhoPorThread;
@@ -38,17 +37,17 @@ public class Main {
 
             for (ThreadDeBusca threadDeBusca : threads) {
                 Integer posicaoEncontrada = threadDeBusca.getPosicaoEncontrada();
-                if (posicaoEncontrada != null) {
-                    Integer threadQueEncontrou = threadDeBusca.getThreadId();
-                    System.out.println("Posição encontrada pela thread: " + posicaoEncontrada);
-                    System.out.println("Thread que encontrou: " + threadQueEncontrou);
+                Integer threadQueEncontrou = threadDeBusca.getThreadId();
+                if (posicaoEncontrada == null) {
+                    System.out.println("valor NÃO ENCONTRADO pela thread: " + threadQueEncontrou);
+
+                } else {
+                    System.out.println("Valor ENCONTRADO na posição " + posicaoEncontrada + " pela thread: " + threadQueEncontrou);
                 }
             }
-
-
         }
         catch (Exception erro)
-        {} // sei que não passei null para o construtor de nenhuma das tarefas
+        {}
 
     }
 }
