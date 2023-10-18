@@ -1,6 +1,9 @@
 import java.util.Collections;
 import java.util.Vector;
 
+// Emílio José Biasi   RA: 21006674
+// Gian Vitor Dutra    RA: 21001048
+
 public class Main {
     public static void main(String[] args) {
         try
